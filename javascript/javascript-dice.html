@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dice</title>
+</head>
+<body style="background-color: rgb(200, 241, 228);">
+    <center>
+        <h2 style="margin-top: 10%;">Dice</h2>
+    <h4>Arul, Gowtham, Hari, kavinmathi, Keerthick, Prasath, Preethi</h4>
+    </center>
+    <script>
+        const users = ['Arul', 'Gowtham', 'Hari', 'kavinmathi', 'Keerthick', 'Prasath', 'Preethi'];
+        const pTag = document.createElement('h3');
+        pTag.style = 'color : rgb(0, 161, 110);margin-left:47%;padding:10px';
+        const x = document.getElementsByTagName('body')[0]; 
+        x.appendChild(pTag);
+        const submitInputTag = document.createElement('input');
+        submitInputTag.type = 'submit';
+        submitInputTag.value = 'Click';
+        submitInputTag.style = 'margin-left:48.5%;padding:10px;padding-left:15px;padding-right:15px;border:none;background-color:rgb(0, 161, 110);color:white;border-radius:5px'
+        x.appendChild(submitInputTag);
+        submitInputTag.onclick =  positionCalc;
+
+        function positionCalc() {
+            const position = Math.floor(Math.random() * users.length);
+            pTag.innerHTML = users[position];
+        }
+        
+    </script>
+</body>
+</html>
