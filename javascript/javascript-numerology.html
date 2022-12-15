@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Numerology</title>
+</head>
+<body>
+    <script>
+        const alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+        const numbers =   [1, 2, 3, 4, 5, 8, 3, 5, 1, 1, 2, 3, 4, 5, 7, 8, 1, 2, 3, 4, 6, 6, 6, 5, 1, 7, 0];
+        const bodyTag = document.getElementsByTagName('body')[0];
+        const textInputTag = document.createElement('input');
+        textInputTag.type = 'text';
+        bodyTag.appendChild(textInputTag);
+        const submitInputTag = document.createElement('input');
+        submitInputTag.type = 'submit';
+        bodyTag.appendChild(submitInputTag);
+        submitInputTag.onclick = numerologyCalc; 
+        const pTag = document.createElement('p');
+        bodyTag.appendChild(pTag);
+        pTag.style = 'color : red; font-size : 20';
+        pTag.innerHTML = 'Numeralogy Number';
+        const h3Tag = document.createElement('h3');
+        bodyTag.appendChild(h3Tag);
+
+        function numerologyCalc() {
+            const input = textInputTag.value;
+            const lowerCase = input.toLowerCase();
+            let sum1 = 0;
+
+            for(let i = 0; i < input.length; i++) {
+                const indexOfAlphabets = alphabets.indexOf(lowerCase.charAt(i));
+                const valueOfNumbers = numbers[indexOfAlphabets];
+                sum1 = sum1 + valueOfNumbers;
+            }
+
+            let num = 0;
+
+            while(sum1 > 0 || num > 9) {
+
+                if(sum1 === 0) {
+                    sum1 = num;
+                    num = 0;
+                }
+
+                num = num + sum1 % 10;
+                sum1 = Math.floor(sum1 / 10);
+            }
+
+            h3Tag.innerHTML = num;
+        }
+
+    </script>
+</body>
+</html>
