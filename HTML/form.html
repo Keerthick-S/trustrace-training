@@ -1,0 +1,74 @@
+<html>
+<head>
+    <Title>form</Title>
+</head>
+<body style="background-color: rgb(227, 242, 255);">
+    <Center><h2><I>RegisterForm</I></h2></Center>
+    <form oninput="b.value=parseInt(a.value)">
+    <center>
+        <table cellpadding="10%">
+            <tr>
+                <td><label> FirstName </label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label> LastName </label></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><label> Gender</label></td>
+                <td>
+                    <input type="radio" name="gender">
+                    <lable>Male</lable>
+                    <input type="radio" name="gender">
+                    <lable>Female</lable>
+                </td>
+            </tr>
+            <tr>
+                <td><lable>DateOfBirth</lable></td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td><lable>Age</lable></td>
+                <td><input type="range" id="a" value="20">=<output name="b"></output></td>
+            </tr>
+            <tr>
+                <td><lable>Department</lable></td>
+                <td><select><option>CSE</option>
+                    <option>ECE</option>
+                    <option>IT</option></select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Language Known</label></td>
+                <td><input type="checkbox">
+                <label>C</label>
+                <input type="checkbox">
+                <lable>C++</lable>
+                <input type="checkbox">
+                <label>Java</label>
+                <input type="checkbox">
+                <lable>Python</lable></td>
+            </tr>
+            <tr>
+                <td><lable>MobileNumber</lable></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><lable>Address</lable></td>
+                <td><textarea cols="21" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td><lable>Email</lable></td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td><lable>Password</lable></td>
+                <td><input type="password"></td>
+            </tr>
+        </table><br>
+        <button type="submit">Finish</button>
+    </center>
+    </form>
+</body>
+</html>
