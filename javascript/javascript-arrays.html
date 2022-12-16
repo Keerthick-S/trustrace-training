@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>JavaScript ArraysMethod</title>
+</head>
+<body>
+    <p>Join</p>
+    <p id='join'></p>
+    <p>Pop</p>
+    <p id='pop'></p>
+    <!-- <p>Push</p>
+    <p id='push'></p> -->
+    <p>Shift</p>
+    <p id='shift'></p>
+    <p>unshift</p>
+    <p id='unshift'></p>
+    <p id='display'></p>
+    <p>Delete or Replace </p>
+    <p id='delete'></p>
+    <p>Sort</p>
+    <p id='sort'></p>
+    <p>Concat</p>
+    <p id="concat"></p>
+    <script>
+        console.log('hello');
+        const nameLists = ['Raj', 'Arun', 'Hari', 'bidda'];
+        document.getElementById('join').innerHTML = nameLists.join(' ');
+        document.getElementById('pop').innerHTML = nameLists.pop();
+        // document.getElementById('push').innerHTML = nameList.push('deepa');
+        document.getElementById('shift').innerHTML = nameLists.shift();
+        document.getElementById('unshift').innerHTML = nameLists.unshift();
+        document.getElementById('display').innerHTML = nameLists;
+        nameLists[0] = 'Kumar';
+        document.getElementById('delete').innerHTML = nameLists;
+        const nameLists2 = ['King', 'Queen', 'Karthi'];
+        const nameLists4 = ['Ki', 'Qu', 'Kar'];
+        const nameLists3 = nameLists4.concat(nameLists2);
+        document.getElementById('concat').innerHTML  = nameLists3;
+        document.getElementById('sort').innerHTML = nameLists2.sort();
+
+        
+    </script>
+</body>
+</html>
