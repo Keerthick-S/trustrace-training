@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>JavaScript Numbers</title>
+</head>
+<body>
+    <p>Fixed</p>
+    <p id="to-fixed"></p>
+    <p>Exponential</p>
+    <p id="exponential"></p>
+    <p>toPrecision</p>
+    <p id="to-precision"></p>
+    <p>Value of</p>
+    <p id="value-of"></p>
+    <script>
+        console.log('hello');
+        let x = 9.6212;
+        document.getElementById('to-fixed').innerHTML = x.toFixed(2);
+        document.getElementById('exponential').innerHTML = x.toExponential(4);
+        document.getElementById('to-precision').innerHTML = x.toPrecision(3);
+        document.getElementById('value-of').innerHTML = x.valueOf();
+
+    </script>
+</body>
+</html>
