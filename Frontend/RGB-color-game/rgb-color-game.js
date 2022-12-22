@@ -1,20 +1,22 @@
 const correctMsg = document.getElementById('verify-msg');
 const randomRgbColor = document.getElementById('rgb-color');
 const newColor = document.getElementById('new-color');
-const squareColors = document.getElementsByClassName('square');
+const squareColors = document.querySelectorAll('.square');
 let colors = []; 
 
 init();
 
-// newColor.addEventListener('click', function() {
-//     colors.fill(null);
-//     setCorrectColor();
-//     setColorForSquares();
-// })
+newColor.addEventListener('click', function() {
+    correctMsg.innerHTML = ``;
+    colors.fill(null);
+    setCorrectColor();
+    setColorForSquares();
+})
 
 function init() {
     setCorrectColor();
     setColorForSquares();
+    checkColor();
 }
 
 function setCorrectColor() {
@@ -31,8 +33,33 @@ function setColorForSquares() {
         if(randomIdx !== i && !colors.includes(color)) {
             squareColors[i].style = `background-color: ${color}`;
             colors.push(color); 
-        } 
+        }
+        
     }
+}
+
+function checkColor() {
+
+    squareColors.forEach((color, index) => {
+        color.addEventListener('click', function () {
+        const clickedColor = color.style.backgroundColor;
+        if(correctColor == clickedColor){
+            correctMsg.innerHTML = `CORRECT`;
+            correctMsg.style = `CORRECT`;
+        }
+        else {
+            correctMsg.innerHTML = `Try Again`;
+            correctMsg.style = `color:Red`;
+        }
+        })
+    })
+
+
+
+
+
+    // squareColors[i].addEventListener('click',checkColor(squareColors[i])); 
+    
 }
 
 function randomIndex() {
