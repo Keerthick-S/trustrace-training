@@ -1,0 +1,61 @@
+body {
+    background-image: linear-gradient(to bottom, #000000, #090809, #110f11, #151417, #19191c, #19191c, #19191c, #19191c, #151417, #110f11, #090809, #000000);
+}
+
+#heading,.game {
+    color: rgb(155, 155, 155);
+    font-family: "Raleway", Sans-serif;
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-left: 37%;
+    margin-top: 3%;
+}
+
+.game {
+    margin-top: -1% !important;
+    color: rgb(155, 155, 155);
+    margin-left: 47%;
+    font-size: 30px;
+}
+
+.new-color-button {
+    height: 30px !important;        
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    background-color: rgb(155, 155, 155);
+    border: none;
+    border-radius: 5px;
+}
+
+.header-container {
+    margin-left: 37%;
+}
+
+.square {
+    width: 30%;
+	background-color: purple;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.2%;
+	border-radius: 10px;
+    /* border: 0.5px solid rgb(155, 155, 155); */
+}
+
+#square-container {
+    width: 500px;
+    height: 250px;
+    margin-left: 450px;
+    margin-top: 60px;
+}
+
+.verify-msg {
+    margin-left: 5%;
+    color: rgb(70, 207, 70);
+    font-size: 18px;
+}
+
+.rgb-color {
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
