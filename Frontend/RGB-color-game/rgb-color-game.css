@@ -39,6 +39,10 @@ body {
 	margin: 1.2%;
 	border-radius: 25px;
     cursor: pointer;
+    transition: background .5s;
+	-webkit-transition: background .5s;
+	-moz-transition: background .5s;
+	o-transition: background .5s;
 }
 
 #square-container {

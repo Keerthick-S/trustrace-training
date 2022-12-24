@@ -23,7 +23,6 @@ function setCorrectColor() {
     correctColor = randomColor();
     randomRgbColor.innerHTML = `${correctColor}`;
     randomIdx = randomIndex();
-    console.log(randomIdx,correctColor);
     squareColors[randomIdx].style = `background-color: ${correctColor}`;
 }
 
@@ -45,21 +44,15 @@ function checkColor() {
         const clickedColor = color.style.backgroundColor;
         if(correctColor == clickedColor){
             correctMsg.innerHTML = `CORRECT`;
-            correctMsg.style = `CORRECT`;
+            correctMsg.style = `color: green`;
         }
         else {
             correctMsg.innerHTML = `Try Again`;
             correctMsg.style = `color:Red`;
+            color.style = 'background-color: black';
         }
         })
     })
-
-
-
-
-
-    // squareColors[i].addEventListener('click',checkColor(squareColors[i])); 
-    
 }
 
 function randomIndex() {
