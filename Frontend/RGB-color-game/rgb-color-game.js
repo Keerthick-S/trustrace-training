@@ -44,7 +44,12 @@ function checkColor() {
         const clickedColor = color.style.backgroundColor;
         if(correctColor == clickedColor){
             correctMsg.innerHTML = `CORRECT`;
-            correctMsg.style = `color: green`;
+            correctMsg.style = `color: rgb(70, 207, 70)`;
+            squareColors.forEach((anotherColor, anotherIndex) => {
+                if(index != anotherIndex) {
+                    anotherColor.style = `background-color: ${clickedColor}`;
+                }
+            })
         }
         else {
             correctMsg.innerHTML = `Try Again`;
