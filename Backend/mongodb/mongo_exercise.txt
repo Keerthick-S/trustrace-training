@@ -24,6 +24,7 @@
 	
 7. Find average imdb rating for movies released in year 1999 using aggregate from sample_mflix database
 
+	db.movies.aggregate([{$match:{year:1999}},{$group:{_id:"$title",average:{$avg:"$imdb.rating"}}}]}
 
 8. Find first theatre located in state "VA" in sample_mflix database
 
