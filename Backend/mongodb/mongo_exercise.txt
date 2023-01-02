@@ -1,0 +1,30 @@
+1. Find count of companies acquired in year 1997 from sample_training database
+
+	db.companies.countDocuments({founded_year : 1997})
+
+2. Find unique company names founded after year 2000 from sample_training database
+
+	db.companies.distinct("name", {founded_year: {$gt : 2000}, {} })
+
+3. Find list of all inspections done with Violation issued in sector Tax Preparers - 891 in sample_training database
+
+	db.inspections.find({$and:[{sector : 'Tax Preparers - 891'}, {result: 'done with Violation'}]})
+
+4. Find total count inspection passed and re inspection needed companies count using aggregate in sample_training database
+
+	db.inspections.find({$or: [{result: 'Pass'},{result:'Re-inspection'}]}).count()
+
+	db.inspections.aggregate([{$match:{$or:[{result:"Pass"},{result:"Result:"Re-inspection"}]}}])
+
+5. Find total count of sales done in month of augest in 2014 by senior citizens in sample_supplies database
+
+	
+6. List all sales purchase method and coupon used alone with sorted by store location in decending order in sample_supplies database
+
+	
+7. Find average imdb rating for movies released in year 1999 using aggregate from sample_mflix database
+
+
+8. Find first theatre located in state "VA" in sample_mflix database
+
+	db.theaters.findOne({'location.address.state':"VA"})
