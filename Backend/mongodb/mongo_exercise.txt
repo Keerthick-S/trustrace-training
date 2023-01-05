@@ -12,7 +12,7 @@
 
 4. Find total count inspection passed and re inspection needed companies count using aggregate in sample_training database
 
-	........  db.inspections.aggregate([{$match:{$or:[{result:"Pass"},{result:"Result:"Re-inspection"}]}},{$count: "Count"}])
+	db.inspections.aggregate([{$match:{$or:[{result:"Pass"},{result:"Result:"Re-inspection"}]}},{$count: "Count"}])
 
 5. Find total count of sales done in month of augest in 2014 by senior citizens in sample_supplies database
 
@@ -20,7 +20,7 @@
 
 6. List all sales purchase method and coupon used alone with sorted by store location in decending order in sample_supplies database
 
-		
+	db.sales.find({},{couponUsed:1, purchaseMethod: 1, storeLocation:1}).sort({storeLocation: -1})
 
 7. Find average imdb rating for movies released in year 1999 using aggregate from sample_mflix database
 
