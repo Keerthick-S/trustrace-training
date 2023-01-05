@@ -12,19 +12,19 @@
 
 4. Find total count inspection passed and re inspection needed companies count using aggregate in sample_training database
 
-	db.inspections.find({$or: [{result: 'Pass'},{result:'Re-inspection'}]}).count()
-
-	db.inspections.aggregate([{$match:{$or:[{result:"Pass"},{result:"Result:"Re-inspection"}]}}])
+	........  db.inspections.aggregate([{$match:{$or:[{result:"Pass"},{result:"Result:"Re-inspection"}]}},{$count: "Count"}])
 
 5. Find total count of sales done in month of augest in 2014 by senior citizens in sample_supplies database
 
-	
+	db.sales.find({$and:[{saleDate:{$gte:ISODate("2014-08-01")}},{saleDate:{$lt: ISODate("2014-09-01")}},{"customer.age":{$gt: 60}}]})
+
 6. List all sales purchase method and coupon used alone with sorted by store location in decending order in sample_supplies database
 
-	
+		
+
 7. Find average imdb rating for movies released in year 1999 using aggregate from sample_mflix database
 
-	db.movies.aggregate([{$match:{year:1999}},{$group:{_id:"$title",average:{$avg:"$imdb.rating"}}}]}
+	db.movies.aggregate([{$match:{year:1999}},{$group:{_id:"null",average:{$avg:"$imdb.rating"}}}]}
 
 8. Find first theatre located in state "VA" in sample_mflix database
 
