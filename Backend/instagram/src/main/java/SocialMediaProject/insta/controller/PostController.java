@@ -33,6 +33,6 @@ public class PostController {
     }
     @GetMapping("/{instaId}/{id}")
     public Post getPost(@PathVariable("instaId") String instaId, @PathVariable("id") String id) {
-        return postService.getPost(id);
+        return postService.getPost(id, instaId);
     }
 }

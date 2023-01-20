@@ -13,7 +13,7 @@ public class Post {
     private String postDescription;
     private LocalDateTime timeAndDate;
     private String instaId;
-
+    private int views;
     public Post(String id, String postDescription, String post, LocalDateTime timeAndDate, String instaId) {
         this.id = id;
         this.postDescription = postDescription;
@@ -27,36 +27,34 @@ public class Post {
     public void setId(String id) {
         this.id = id;
     }
-
     public String getPostDescription() {
         return postDescription;
     }
-
     public void setPostDescription(String postDescription) {
         this.postDescription = postDescription;
     }
-
     public String getPost() {
         return post;
     }
-
     public void setPost(String post) {
         this.post = post;
     }
-
     public LocalDateTime getTimeAndDate() {
         return timeAndDate;
     }
-
     public void setTimeAndDate(LocalDateTime timeAndDate) {
         this.timeAndDate = timeAndDate;
     }
-
     public String getInstaId() {
         return instaId;
     }
-
     public void setInstaId(String instaId) {
         this.instaId = instaId;
+    }
+    public int getViews() {
+        return views;
+    }
+    public void setViews(int views) {
+        this.views = views;
     }
 }

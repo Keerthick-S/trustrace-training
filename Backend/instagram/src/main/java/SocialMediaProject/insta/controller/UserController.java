@@ -34,4 +34,10 @@ public class UserController {
     public void updateByInstaId(@PathVariable String instaId, @RequestBody User user) {
         userService.updateByInstaId(instaId, user);
     }
+    @PutMapping("/{instaId}/follow/{followerInstaId}")
+    public String updateFollowing(@PathVariable("instaId") String instaId,
+                          @PathVariable("followerInstaId") String followerInstaId) throws Exception {
+        userService.updateFollowing(instaId, followerInstaId);
+        return "started following";
+    }
 }

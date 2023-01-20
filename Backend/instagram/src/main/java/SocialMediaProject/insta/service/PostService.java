@@ -14,9 +14,12 @@ public class PostService {
     InstaRepository instaRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    ServiceValidator serviceValidator;
     public void createPost(String instaId, Post post) {
         post.setInstaId(instaId);
         post.setTimeAndDate(LocalDateTime.now());
+        post.setViews(0);
         instaRepository.createPost(post);
         countNoOfPost(instaId);
     }
@@ -30,8 +33,10 @@ public class PostService {
         instaRepository.deletePost(id);
         countNoOfPost(instaId);
     }
-    public Post getPost(String id) {
-        return instaRepository.getPost(id);
+    public Post getPost(String id, String instaId) {
+        Post post = instaRepository.getPost(id, instaId);
+        serviceValidator.viewPreValidator(id, instaId, post);
+        return post;
     }
     public void countNoOfPost(String instaId) {
         List<Post> userPost = instaRepository.userAllPost(instaId);

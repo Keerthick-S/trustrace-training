@@ -12,20 +12,20 @@ public class UserService {
     @Autowired
     InstaRepository instaRepository;
     @Autowired
-    UserValidator userValidator;
+    ServiceValidator serviceValidator;
     public void signup(User user) throws Exception{
-        userValidator.createCheckInstaId(user.getInstaId());
+        serviceValidator.createCheckInstaId(user.getInstaId());
         instaRepository.signup(user);
     }
     public User getUserByInstaId(String instaId) throws Exception{
-        userValidator.checkInstaId(instaId);
+        serviceValidator.checkInstaId(instaId);
         return instaRepository.getUserByInstaId(instaId);
     }
     public void updateByInstaId(String instaId, User user) {
         instaRepository.updateByInstaId(instaId, user);
     }
     public void deleteUserByInstaId(String instaId) throws Exception {
-        userValidator.checkInstaId(instaId);
+        serviceValidator.checkInstaId(instaId);
         instaRepository.deleteUserByInstaId(instaId);
     }
     public List<User> getAllUser() {
@@ -34,6 +34,13 @@ public class UserService {
     public void updateNoOfPostCount(String instaId, int count) {
         User user = instaRepository.getUserByInstaId(instaId);
         instaRepository.updateNoOfPost(instaId, count);
+    }
+    public void updateFollowing(String instaId, String followerInstaId) throws Exception {
+        serviceValidator.checkInstaId(followerInstaId);
+        User user = instaRepository.getUserByInstaId(instaId);
+        User userToFollow = instaRepository.getUserByInstaId(followerInstaId);
+        instaRepository.updateFollowing(instaId, followerInstaId, user.getFollowingList());
+        instaRepository.updateFollower(followerInstaId, instaId, userToFollow.getFollowersList());
     }
 
 }
