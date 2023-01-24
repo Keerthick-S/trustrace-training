@@ -18,6 +18,9 @@ public class UserService {
     public void delete(String id) {
         userRepository.delete(id);
     }
+    public List<User> getAllUsers(String page, String limit) {
+        return userRepository.getAllUsers(Integer.parseInt(page), Integer.parseInt(limit));
+    }
     public List<User> getAllUsers() {
         return userRepository.getAllUsers();
     }

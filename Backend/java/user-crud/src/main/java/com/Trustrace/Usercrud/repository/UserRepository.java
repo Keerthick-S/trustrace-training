@@ -25,6 +25,10 @@ public class UserRepository {
     public List<User> getUser(String id) {
         return mongoTemplate.find(Query.query(Criteria.where("userId").is(id)), User.class);
     }
+    public List<User> getAllUsers(int page, int limit) {
+        Query query = new Query().skip(page * limit).limit(limit);
+        return mongoTemplate.find(query, User.class);
+    }
     public List<User> getAllUsers() {
         return mongoTemplate.findAll(User.class);
     }
