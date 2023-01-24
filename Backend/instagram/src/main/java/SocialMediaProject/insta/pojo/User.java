@@ -16,18 +16,14 @@ public class User {
     private String instaId;
     private String description;
     private long followers;
-    private List<String> followersList;
     private long following;
-    private List<String> followingList;
     private int posts;
     public User(String id, String instaId, String description) {
         this.id = id;
         this.instaId = instaId;
         this.description = description;
         this.followers = 0;
-        this.followersList = new ArrayList<>();
         this.following = 0;
-        this.followingList = new ArrayList<>();
         this.posts = 0;
     }
 
@@ -71,18 +67,5 @@ public class User {
     public void setPosts(int posts) {
 //        logger.info(String.valueOf(noOfPost));
         this.posts = posts;
-    }
-    public List<String> getFollowersList() {
-        return followersList;
-    }
-
-    public void setFollowersList(String follower) {
-        this.followersList.add(follower);
-    }
-    public List<String> getFollowingList() {
-        return followingList;
-    }
-    public void setFollowingList(String following) {
-        this.followersList.add(following);
     }
 }

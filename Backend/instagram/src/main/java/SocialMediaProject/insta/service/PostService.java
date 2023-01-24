@@ -1,7 +1,7 @@
 package SocialMediaProject.insta.service;
 
 import SocialMediaProject.insta.pojo.Post;
-import SocialMediaProject.insta.repository.InstaRepository;
+import SocialMediaProject.insta.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class PostService {
     @Autowired
-    InstaRepository instaRepository;
+    PostRepository postRepository;
     @Autowired
     UserService userService;
     @Autowired
@@ -20,26 +20,31 @@ public class PostService {
         post.setInstaId(instaId);
         post.setTimeAndDate(LocalDateTime.now());
         post.setViews(0);
-        instaRepository.createPost(post);
+        postRepository.createPost(post);
         countNoOfPost(instaId);
     }
     public List<Post> userAllPost(String instaId) {
-        return instaRepository.userAllPost(instaId);
+        return postRepository.userAllPost(instaId);
     }
     public List<Post> getAllPost() {
-        return instaRepository.getAllPost();
+        return postRepository.getAllPost();
     }
     public void deletePost(String instaId, String id) {
-        instaRepository.deletePost(id);
+        postRepository.deletePost(id);
         countNoOfPost(instaId);
     }
     public Post getPost(String id, String instaId) {
-        Post post = instaRepository.getPost(id, instaId);
-        serviceValidator.viewPreValidator(id, instaId, post);
+        Post post = postRepository.getPost(id);
+        if(post.getInstaId() != instaId) {
+            postRepository.updateView(id, post);
+        }
         return post;
     }
     public void countNoOfPost(String instaId) {
-        List<Post> userPost = instaRepository.userAllPost(instaId);
+        List<Post> userPost = postRepository.userAllPost(instaId);
         userService.updateNoOfPostCount(instaId, userPost.size());
+    }
+    public List<Post> getTopPost(int page, int limit) {
+        return postRepository.getTopPost(page, limit);
     }
 }

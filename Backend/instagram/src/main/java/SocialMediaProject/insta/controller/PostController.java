@@ -2,6 +2,7 @@ package SocialMediaProject.insta.controller;
 
 import SocialMediaProject.insta.pojo.Post;
 import SocialMediaProject.insta.service.PostService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class PostController {
         return postService.userAllPost(instaId);
     }
 
-    @GetMapping
+    @GetMapping("/all-post")
     public List<Post> getAllPost() {
         return postService.getAllPost();
     }
@@ -34,5 +35,9 @@ public class PostController {
     @GetMapping("/{instaId}/{id}")
     public Post getPost(@PathVariable("instaId") String instaId, @PathVariable("id") String id) {
         return postService.getPost(id, instaId);
+    }
+    @GetMapping
+    public List<Post> getTopPost(@PathParam("page") int page, @PathParam("limit") int limit) {
+        return postService.getTopPost(page, limit);
     }
 }

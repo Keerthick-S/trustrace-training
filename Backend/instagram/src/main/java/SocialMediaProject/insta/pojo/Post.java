@@ -14,12 +14,14 @@ public class Post {
     private LocalDateTime timeAndDate;
     private String instaId;
     private int views;
+    private long likes;
     public Post(String id, String postDescription, String post, LocalDateTime timeAndDate, String instaId) {
         this.id = id;
         this.postDescription = postDescription;
         this.post = post;
         this.timeAndDate = timeAndDate;
         this.instaId = instaId;
+        this.likes = 0;
     }
     public String getId() {
         return id;
@@ -56,5 +58,13 @@ public class Post {
     }
     public void setViews(int views) {
         this.views = views;
+    }
+
+    public long getLikes() {
+        return likes;
+    }
+
+    public void setLikes(long likes) {
+        this.likes = likes;
     }
 }
